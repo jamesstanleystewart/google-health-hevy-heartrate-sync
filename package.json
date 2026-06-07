@@ -1,0 +1,28 @@
+{
+  "name": "hevy-hr-sync",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Cloud Run Function: enriches Hevy workouts with Google Health heart-rate data via clone-and-swap.",
+  "main": "dist/index.js",
+  "engines": {
+    "node": "20"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "functions-framework --target=hevyWebhook --source=dist",
+    "watch": "tsc --watch",
+    "dev": "npm run build && functions-framework --target=hevyWebhook --source=dist --port=8080",
+    "dry-run": "tsx --env-file=.env scripts/dry-run.ts",
+    "cleanup": "tsx --env-file=.env scripts/cleanup-duplicates.ts"
+  },
+  "dependencies": {
+    "@google-cloud/functions-framework": "^3.4.2",
+    "@google-cloud/storage": "^7.12.1",
+    "axios": "^1.7.7"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "tsx": "^4.19.1",
+    "typescript": "^5.5.4"
+  }
+}

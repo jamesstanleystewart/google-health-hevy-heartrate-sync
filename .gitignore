@@ -1,0 +1,10 @@
+node_modules
+dist
+.env
+.env.local
+.env.yaml
+scripts/last-payload.json
+scripts/new-tokens.env
+*.log
+.DS_Store
+scripts/webhook-auth.txt
