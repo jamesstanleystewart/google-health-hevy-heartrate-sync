@@ -78,7 +78,7 @@ fi
 # --format suppresses the post-deploy YAML dump that includes env-var values.
 gcloud functions deploy "$FUNCTION_NAME" \
   --gen2 \
-  --runtime=nodejs20 \
+  --runtime=nodejs22 \
   --region="$REGION" \
   --source=. \
   --entry-point=hevyWebhook \
