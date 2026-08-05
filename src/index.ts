@@ -411,6 +411,10 @@ export interface V2Exercise {
   volume_doubling_enabled?: boolean;
   sets: V2Set[];
 }
+export interface V2Gym {
+  type: string;
+  gym_id: string;
+}
 export interface V2Workout {
   trainer_program_id?: string;
   exercises: V2Exercise[];
@@ -418,6 +422,7 @@ export interface V2Workout {
     heart_rate_samples?: unknown[];
     total_calories?: number;
   };
+  gym?: V2Gym | null;
 }
 
 export async function getWorkoutV1(id: string): Promise<V1Workout> {
@@ -514,6 +519,7 @@ export interface PostWorkoutPayload {
     start_time: number;
     end_time: number;
     exercises: CloneExercise[];
+    gym: V2Gym | null;
     is_biometrics_public: boolean;
     is_private: boolean;
     media: unknown[];
@@ -545,6 +551,7 @@ export function buildClonePayload(
       start_time: startSec,
       end_time: endSec,
       exercises: mergeExercises(v1, v2),
+      gym: v2.gym ?? null,
       is_biometrics_public: true,
       is_private: false,
       media: [],
