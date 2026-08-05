@@ -5,7 +5,7 @@
   "description": "Cloud Run Function: enriches Hevy workouts with Google Health heart-rate data via clone-and-swap.",
   "main": "dist/index.js",
   "engines": {
-    "node": "20"
+    "node": "22"
   },
   "scripts": {
     "build": "tsc",
@@ -21,7 +21,7 @@
     "axios": "^1.7.7"
   },
   "devDependencies": {
-    "@types/node": "^20.14.0",
+    "@types/node": "^22.20.1",
     "tsx": "^4.19.1",
     "typescript": "^5.5.4"
   }
