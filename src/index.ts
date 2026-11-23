@@ -417,6 +417,7 @@ export interface V2Gym {
 }
 export interface V2Workout {
   trainer_program_id?: string;
+  trainer_workout_template_id?: string;
   exercises: V2Exercise[];
   biometrics?: {
     heart_rate_samples?: unknown[];
@@ -527,6 +528,7 @@ export interface PostWorkoutPayload {
     title: string;
     workout_id: string;
     trainer_program_id: string | null;
+    trainer_workout_template_id: string | null;
   };
 }
 
@@ -561,6 +563,7 @@ export function buildClonePayload(
       // New workout id (must be a fresh UUID, not the original)
       workout_id: crypto.randomUUID(),
       trainer_program_id: v2.trainer_program_id ?? null,
+      trainer_workout_template_id: v2.trainer_workout_template_id ?? null,
     },
   };
 }
